@@ -1,6 +1,11 @@
 
 # Created by https://www.gitignore.io/api/java,text
 
+### Custom ###
+*.in
+*.out
+*.txt
+ 
 ### Java ###
 # Compiled class file
 *.class
