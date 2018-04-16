@@ -4,7 +4,6 @@
 ### Custom ###
 *.in
 *.out
-*.txt
  
 ### Java ###
 # Compiled class file
