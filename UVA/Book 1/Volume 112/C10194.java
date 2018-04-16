@@ -74,8 +74,8 @@ public class C10194 {
 			if (T > 0) {
 				writer.print("\n");
 			}
-			writer.flush();
 		}
+		writer.flush();
 		writer.close();
 	}
 }
