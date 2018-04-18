@@ -4,6 +4,7 @@
 ### Custom ###
 *.in
 *.out
+/UVA/Book\ 1/Pendiente/
  
 ### Java ###
 # Compiled class file
