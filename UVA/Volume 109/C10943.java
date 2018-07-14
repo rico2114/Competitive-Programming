@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 
+// Note this solution can also be achieved by pascal triangle
 public class C10943 {
 	
 	private static final int MAX_N = 100 + 1;
@@ -11,6 +12,7 @@ public class C10943 {
 	private static int N;
 	private static int K;
 	private static final int MODULO = 1_000_000;
+	
 	/**
 	 * This is the ORIGINAL recursive backtrack solution
 	 * It's clear to see how this recursion can be converted into the tabular method
