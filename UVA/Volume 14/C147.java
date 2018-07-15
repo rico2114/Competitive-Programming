@@ -1,15 +1,23 @@
 import java.util.*;
 import java.io.*;
 
-public class C174 {
+public class C147 {
 
-	private static final double [] D = new double [] {
-		100, 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05
+	// The only tricky part in this problem is how to represent floating point part?
+	// Solution: Transform all to cents currency
+	// 100 cents = 1 dollar
+	private static final int [] D = new int [] {
+		10_000, 5_000, 2_000, 1_000, 500, 200, 100, 50, 20, 10, 5
 	};
 
-	// Solve the tabulation to hold 300.KW we need to be able to store that
-	private static final int MAX_N = 30_000;
-	private static final int EXTRA = 2;
+	// 1 usd = 100 cents
+	private static final int CONVERSION_RATE = 100;
+
+	// We changed our currency to be in general CENTS
+	// 100 cents = 1 dollar
+	// Transform all to cents
+	private static final int MAX_N = 300 * CONVERSION_RATE; // 300 usd to cents = (300 * CONVERSION_RATE) = 30_000
+	private static final int EXTRA = 25;
 
 	public static final long [][] DP = new long [MAX_N + EXTRA][D.length + EXTRA];
 
@@ -85,11 +93,17 @@ public class C174 {
 		tabulate();
 		String line = "";
 		while ((line = reader.readLine()) != null) {
-			final int N = Integer.parseInt(line);
-			final long ways = DP[N][D.length - 1];
-			writer.write(ways + "\n");
+			final int N = (int) (Float.parseFloat(line) * CONVERSION_RATE + 0.5); // Fixing rounding error for some numbers
+			// Remember floats are dangerous!!! rounding errors
+			
+			if (N == 0) {
+				break;
+			}
+			// %Ns; % s (a string); the N means justify to the right with a width of N
+			writer.write(String.format("%6s%17s\n", line, DP[N][D.length - 1]));
 		}
-		reader.close();
+
 		writer.close();
+		reader.close();
 	}
 }
