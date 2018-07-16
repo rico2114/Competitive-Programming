@@ -35,7 +35,7 @@ public class C216 {
 		int pointsTo = 0;
 		boolean couldPick = false;
 		for (int j = 0; j < P; ++ j) {
-			// Same vertex or already taken
+			// already taken vertex
 			if ((((path >> j) & 1) == 1)) {
 				continue;
 			}
