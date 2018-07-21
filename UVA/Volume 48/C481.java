@@ -68,6 +68,7 @@ public class C481 {
 			taken[i] = true;
 			int ans = solve(i, taken);
 			if (ans > max) {
+				// Used to backtrack the solution
 				indexSTR = i;
 				max = ans;
 			}
